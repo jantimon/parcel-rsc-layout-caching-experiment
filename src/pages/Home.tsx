@@ -47,7 +47,7 @@ export default function Home({ value }: { value: number }) {
 
 export const getInitialProps = async () => {
   // Simulate some data fetching
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return {
     value: (Math.random() * 100).toFixed(0),
   };

@@ -9,13 +9,14 @@
       "source": "src/server.tsx",
       "context": "react-server",
       "includeNodeModules": {
-        "express": false
+        "express": false,
+        "node:async_hooks": false
       }
     }
   },
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build --no-optimize --no-source-maps --no-cache"
   },
   "dependencies": {
     "@parcel/rsc": "^2.14.0",

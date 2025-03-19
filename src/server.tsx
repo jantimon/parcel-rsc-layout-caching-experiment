@@ -1,4 +1,3 @@
-import { renderRequest } from "@parcel/rsc/node";
 import express from "express";
 import React from "react";
 import { renderToReadableStream } from "react-dom/server.edge" with { env: "react-client" };

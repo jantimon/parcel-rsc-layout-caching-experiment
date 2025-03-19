@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Page } from "./Page";
+import "./main.css";
 import "./client";
 
 export function MainLayout() {
