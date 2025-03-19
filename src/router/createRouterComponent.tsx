@@ -32,7 +32,6 @@ export function createRouterComponent(
     }
     const Route = (routeComponents[path] ||
       routeComponents["/404"]) as unknown as React.ComponentType;
-    debugger;
     let initialPropsMaps = pageProps;
 
     // Initial props is not set initially
