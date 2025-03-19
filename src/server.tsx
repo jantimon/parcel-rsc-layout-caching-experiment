@@ -12,11 +12,9 @@ const app = express();
 const layout = <MainLayout />;
 
 app.use(express.static("dist"));
+app.use(express.static("public"));
 
-app.use("*", async (req, res, next) => {
-  if (req.path.endsWith("/") === false) {
-    return next();
-  }
+app.use(async (req, res) => {
   try {
     // Get the App Shell (the layout) from the cache
     const { html } = await getLayout(layout, { component: MainLayout });

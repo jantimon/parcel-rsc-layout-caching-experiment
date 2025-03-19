@@ -5,7 +5,7 @@ import { router } from "../router";
 
 const { Link } = router;
 
-export default function Home() {
+export default function Home({ value }: { value: number }) {
   const [count, setCount] = useState(0);
 
   const incrementCount = () => {
@@ -33,6 +33,8 @@ export default function Home() {
           Increment
         </button>
 
+        <p style={{ marginTop: "20px" }}>Value from inital props: {value}</p>
+
         <Link href="/about" style={{ marginLeft: "20px" }}>
           Go to About
         </Link>
@@ -40,3 +42,11 @@ export default function Home() {
     </div>
   );
 }
+
+export const getInitialProps = async () => {
+  // Simulate some data fetching
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return {
+    value: (Math.random() * 100).toFixed(0),
+  };
+};
