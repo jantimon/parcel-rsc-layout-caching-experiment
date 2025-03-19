@@ -23,11 +23,7 @@ This project showcases:
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/parcel-rsc-server-experiment.git
-cd parcel-rsc-server-experiment
-
-# Install dependencies
+# Install dependencies with yarn
 yarn
 ```
 
