@@ -16,22 +16,22 @@ const routeComponents = Object.fromEntries(
   }),
 );
 
-const extractInitalProps = () => {
-  const scriptTag = document.getElementById("initialProps");
-  if (!scriptTag) {
-    return {};
-  }
-  const initialProps = JSON.parse(scriptTag.textContent || "{}") || {};
-  return initialProps;
-};
-
 let currentUrlInitialProps: [string, Promise<Record<string, unknown>>] =
   typeof window === "undefined"
     ? ["", Promise.resolve()]
-    : [router.routerStore[1](), Promise.resolve(extractInitalProps())];
+    : // On first hydration extract the inial props
+      [
+        router.routerStore[1](),
+        Promise.resolve(
+          JSON.parse(
+            document.getElementById("initialProps")?.textContent || "{}",
+          ) || {},
+        ),
+      ];
 
 export function Page() {
   const path = useSyncExternalStore(...router.routerStore);
+  // During the layout caching the path is not set
   if (path === "UNDEFINED") {
     return PLACEHOLDER_TOKEN;
   }
@@ -41,16 +41,17 @@ export function Page() {
     const propsLoader = loader().then(
       (module) => module.getInitialProps?.() || {},
     );
+    // On the server react will wait for the promise
+    // on the client it will rerender and therefore
+    // we need to ensure that the promise is stable
+    // and not recreated on every render
     if (typeof window !== "undefined") {
-      // This is a workaround for the fact that React doesn't
-      // support async components yet
       currentUrlInitialProps = [path, propsLoader];
     }
     initialProps = use(propsLoader);
   } else {
     initialProps = use(currentUrlInitialProps[1]);
   }
-
   const Route = (routeComponents[path] ||
     routeComponents["/404"]) as unknown as React.ComponentType;
   return (

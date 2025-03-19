@@ -33,7 +33,9 @@ export default function Home({ value }: { value: number }) {
           Increment
         </button>
 
-        <p style={{ marginTop: "20px" }}>Value from inital props: {value}</p>
+        <p style={{ marginTop: "20px" }}>
+          Value from inital props: {value} (with artificial delay)
+        </p>
 
         <Link href="/about" style={{ marginLeft: "20px" }}>
           Go to About
