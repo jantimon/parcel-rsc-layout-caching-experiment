@@ -20,10 +20,6 @@ This project showcases:
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js 18+ recommended
-
 ### Installation
 
 ```bash
@@ -32,14 +28,14 @@ git clone https://github.com/yourusername/parcel-rsc-server-experiment.git
 cd parcel-rsc-server-experiment
 
 # Install dependencies
-npm install
+yarn
 ```
 
 ### Development
 
 ```bash
 # Start the development server
-npm start
+yarn start
 ```
 
 Visit `http://localhost:3001` in your browser to see the application.
