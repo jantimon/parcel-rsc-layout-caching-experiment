@@ -15,7 +15,7 @@ export function MainLayout() {
       <body>
         <header>
           <h1>RSC Layout Caching Demo</h1>
-          {new Date().toString()}
+          Cached at: {new Date().toString()}
         </header>
 
         <main>

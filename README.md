@@ -101,14 +101,6 @@ This approach offers several performance advantages:
 
 ## Limitations
 
-One big limitation of the current POC is that the current page javascript
-is loaded during the hydration and not initially. This means the page takes
-longer to become interactive.
-
-Another big problem is that Parcel does not provide an API to render the markup
-of a client component - it always is surrounded by `<script>` and `<link>` tags and even adds a `</body></html>` at the end.
-Currently this is extracted with a lot of regex replacements.
-
 Currently only a single layout is possile - in a more sophisticated setup each
 route could have its own layout.
 

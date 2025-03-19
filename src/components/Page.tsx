@@ -4,22 +4,24 @@ import React, { lazy, useSyncExternalStore } from "react";
 import { router } from "../router";
 import { PLACEHOLDER_TOKEN } from "../cache/token";
 
-// Especially for Client Navigation the router would have to preload the lazy components
-const LazyHome = lazy(() => import("../pages/Home"));
-const LazyAbout = lazy(() => import("../pages/About"));
+export const routes = {
+  "/": () => import("../pages/Home"),
+  "/about": () => import("../pages/About"),
+  "/404": () => import("../pages/NotFound"),
+} as const;
+
+const routeComponents = Object.fromEntries(
+  Object.entries(routes).map(([path, loader]) => {
+    const LazyComponent = lazy(loader);
+    return [path, LazyComponent] as const;
+  }),
+);
 
 export function Page() {
   const path = useSyncExternalStore(...router.routerStore);
   if (path === "UNDEFINED") {
     return PLACEHOLDER_TOKEN;
   }
-
-  if (!path) {
-    return <div>Loading...</div>;
-  } else if (path === "/") {
-    return <LazyHome />;
-  } else if (path === "/about") {
-    return <LazyAbout />;
-  }
-  return <div>404 Not Found</div>;
+  const Route = routeComponents[path] || routeComponents["/404"];
+  return <Route />;
 }
