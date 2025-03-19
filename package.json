@@ -1,0 +1,36 @@
+{
+  "name": "parcel-rsc-layout-caching-experiment",
+  "description": "This proof of concept demonstrates the parcel RSC api to cache the App Shell",
+  "version": "0.0.0",
+  "private": true,
+  "server": "dist/server.js",
+  "targets": {
+    "server": {
+      "source": "src/server.tsx",
+      "context": "react-server",
+      "includeNodeModules": {
+        "express": false
+      }
+    }
+  },
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "@parcel/rsc": "^2.14.0",
+    "express": "^4.18.2",
+    "react": "canary",
+    "react-dom": "canary",
+    "parcel": "^2.14.0"
+  },
+  "devDependencies": {
+    "@types/express": "*",
+    "@types/node": "^22.10.1",
+    "@types/parcel-env": "^0.0.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@parcel/packager-react-static": "^2.14.0",
+    "@parcel/transformer-react-static": "^2.14.0"
+  }
+}
