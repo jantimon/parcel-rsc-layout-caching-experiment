@@ -1,6 +1,6 @@
 # Parcel RSC Layout Caching Experiment
 
-This proof of concept demonstrates how to optimize React Server Components (RSC) applications by caching the layout shell while streaming client components dynamically.
+This proof of concept demonstrates how to optimize React Server Components (RSC) applications by caching the layout shell while streaming client components dynamically
 
 ## Overview
 
@@ -17,6 +17,12 @@ This project showcases:
 2. When a user requests a page, the server immediately responds with the cached layout
 3. The specific page content is then streamed into the placeholder in the layout
 4. Client-side navigation works without fetching the layout again
+
+
+
+https://github.com/user-attachments/assets/32b16f1b-ebe5-465a-9856-bb43ff3fe7d9
+
+
 
 ## Getting Started
 
