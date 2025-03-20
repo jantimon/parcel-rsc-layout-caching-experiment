@@ -106,7 +106,7 @@ route could have its own layout.
 
 ## Links
 
-[https://x.com/devongovett/status/1902388011641532465](![Devon Govett: Exactly the kind of experimentation I hoped to enable with RSC support in Parcel.](https://github.com/user-attachments/assets/dee51b00-b2f4-4ba6-ac56-db7b088f65d5))
+[![Devon Govett: Exactly the kind of experimentation I hoped to enable with RSC support in Parcel.](https://github.com/user-attachments/assets/dee51b00-b2f4-4ba6-ac56-db7b088f65d5)]([https://x.com/devongovett/status/1902388011641532465])
 
 
 https://parceljs.org/recipes/rsc/
