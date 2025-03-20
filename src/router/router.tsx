@@ -16,8 +16,18 @@ export function createRouter(implementation: RouterImplementation) {
 
     // For useSyncExternalStore
     routerStore: [
-      implementation.onRouteChange,
+      // On Route Change
+      (callback) => {
+        const unsubscribeRoute = implementation.onRouteChange(callback);
+        const unsubscribeHistory = implementation.onHistoryChange(callback);
+        return () => {
+          unsubscribeRoute();
+          unsubscribeHistory();
+        };
+      },
+      // CSR
       implementation.getRoute,
+      // SSR
       implementation.getRoute,
     ] as const satisfies Parameters<
       typeof import("react").useSyncExternalStore
