@@ -1,11 +1,8 @@
 "use server-entry";
-
 import React from "react";
-import { Page } from "./Page";
 import "./main.css";
-import "./client";
 
-export function MainLayout() {
+export function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <html>
       <head>
@@ -19,9 +16,7 @@ export function MainLayout() {
           Cached at: {new Date().toString()}
         </header>
 
-        <main>
-          <Page />
-        </main>
+        <main>{children}</main>
 
         <footer>
           <p>Powered by React Server Components & Parcel</p>
