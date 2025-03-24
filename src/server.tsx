@@ -1,18 +1,15 @@
 import express from "express";
-import React from "react";
-import { MainLayout } from "./components/MainLayout";
-import { createServerRoute } from "./router/createServerRoute";
-import { LayoutRenderer } from "./router/LayoutRenderer";
+import { requestHandlers } from "./router/routes/ServerSideRoutes";
 
 const app = express();
-const routHandler = createServerRoute(<LayoutRenderer layout={MainLayout} />);
 
 app.use(express.static("dist"));
 app.use(express.static("public"));
 
 app.use(async (req, res) => {
   try {
-    return routHandler(req, res);
+    const routeHandler = requestHandlers[req.path] || requestHandlers["/404"];
+    return routeHandler(req, res);
   } catch (error) {
     console.error("Error rendering layout:", error);
     res.status(500).send("Internal Server Error");

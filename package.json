@@ -17,25 +17,25 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "packageManager": "yarn@4.0.0",
   "scripts": {
-    "start": "parcel",
+    "dev": "parcel",
+    "start": "node dist/server.js",
     "build": "parcel build --no-optimize --no-source-maps --no-cache"
   },
   "dependencies": {
     "@parcel/rsc": "^2.14.0",
     "express": "^4.18.2",
-    "react": "canary",
-    "react-dom": "canary",
-    "parcel": "^2.14.0"
+    "parcel": "^2.14.0",
+    "react": "^19.1.0-canary-e1e74071-20250321",
+    "react-dom": "^19.1.0-canary-e1e74071-20250321"
   },
   "devDependencies": {
+    "@parcel/packager-react-static": "^2.14.0",
+    "@parcel/transformer-react-static": "^2.14.0",
     "@types/express": "*",
     "@types/node": "^22.10.1",
     "@types/parcel-env": "^0.0.6",
     "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@parcel/packager-react-static": "^2.14.0",
-    "@parcel/transformer-react-static": "^2.14.0"
+    "@types/react-dom": "^19"
   }
 }

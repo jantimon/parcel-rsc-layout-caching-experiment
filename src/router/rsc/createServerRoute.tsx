@@ -1,9 +1,9 @@
 import React from "react";
 import { renderToReadableStream } from "react-dom/server.edge" with { env: "react-client" };
-import { getLayout } from "./cache/rscCache";
-import { withRouterContext } from "./router.node";
+import { getLayout } from "./rscCache";
+import { withRouterContext } from "../store/router.node";
 import { LayoutRenderer } from "./LayoutRenderer";
-import { Page } from "../components/Page" with { env: "react-client" };
+import { Page } from "../routes/ClientSideRouter" with { env: "react-client" };
 
 interface Request {
   path: string;
@@ -21,7 +21,12 @@ interface Response {
  *
  * The layout is rendered once and cached, while the page component is rendered dynamically on each request
  */
-export function createServerRoute(pageWithLayout: React.JSX.Element) {
+export function createServerRoute(
+  layout: React.FunctionComponent<{
+    children: React.ReactNode;
+  }>,
+) {
+  const pageWithLayout = <LayoutRenderer layout={layout} />;
   return async (req: Request, res: Response) => {
     // Get the App Shell (the layout) from the cache
     const { html } = await getLayout(pageWithLayout, {

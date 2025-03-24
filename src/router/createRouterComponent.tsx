@@ -1,7 +1,7 @@
 "use client";
 import React, { lazy, use, useSyncExternalStore } from "react";
-import { router } from "../router";
-import { PLACEHOLDER_TOKEN } from "./cache/token";
+import { router } from "../router/store";
+import { PLACEHOLDER_TOKEN } from "./token";
 
 export function createRouterComponent(
   id: string,

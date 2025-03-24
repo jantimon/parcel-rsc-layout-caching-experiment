@@ -1,9 +1,6 @@
 "use client";
-
 import React, { useState } from "react";
-import { router } from "../router";
-
-const { Link } = router;
+import { Link } from "../router/link";
 
 export default function Home({ value }: { value: number }) {
   const [count, setCount] = useState(0);

@@ -1,8 +1,6 @@
 "use client";
-
 import React from "react";
-import { router } from "../router";
-const { Link } = router;
+import { Link } from "../router/link";
 
 export default function About() {
   return (

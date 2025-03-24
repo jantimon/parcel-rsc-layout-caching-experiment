@@ -1,6 +1,6 @@
-import { renderHTML, renderRSC } from "@parcel/rsc/node";
-import { PLACEHOLDER_TOKEN } from "./token";
+import { renderHTML } from "@parcel/rsc/node";
 import { RSCToHTMLOptions } from "@parcel/rsc/server";
+import { PLACEHOLDER_TOKEN } from "../token";
 
 let layoutCache = new Map<
   React.ReactNode,
