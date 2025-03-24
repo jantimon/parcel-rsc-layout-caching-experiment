@@ -59,7 +59,7 @@ export function createRouterComponent(
     if (!initalPropsPromise) {
       // Clear previous props to refresh the cache on route change
       initialPropsMaps = new WeakMap();
-      initalPropsPromise = routes[path]().then(
+      initalPropsPromise = (routes[path] || routes["/404"])().then(
         (module) => module.getInitialProps?.() || {},
       ) as Promise<Record<string, unknown>>;
       // Keep promise stable during client side navigation

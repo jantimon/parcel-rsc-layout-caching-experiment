@@ -8,7 +8,11 @@ app.use(express.static("public"));
 
 app.use(async (req, res) => {
   try {
-    const routeHandler = requestHandlers[req.path] || requestHandlers["/404"];
+    const routeHandler = requestHandlers[req.path];
+    if (!routeHandler) {
+      res.status(404);
+      return requestHandlers["/404"](req, res);
+    }
     return routeHandler(req, res);
   } catch (error) {
     console.error("Error rendering layout:", error);
