@@ -33,6 +33,18 @@ export function createRouter(implementation: RouterImplementation) {
       typeof import("react").useSyncExternalStore
     >,
 
+    useOnRouteChange: (callback: (route: string) => void) => {
+      const latestCallback = React.useRef(callback);
+      latestCallback.current = callback;
+      React.useEffect(
+        () =>
+          implementation.onRouteChange(() =>
+            latestCallback.current(implementation.getRoute()),
+          ),
+        [],
+      );
+    },
+
     // Components
     Link: ({ href, children, ...props }) => {
       const handleClick = (e) => {

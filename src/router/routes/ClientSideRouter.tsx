@@ -1,7 +1,10 @@
 "use client";
-import { createRouterComponent } from "../createRouterComponent";
+// This should probably be generated
 
-export const Page = createRouterComponent("page", {
+import { createRouterComponent } from "../createRouterComponent";
+import { routeLayoutMapping } from "./LayoutRouter";
+
+export const Page = createRouterComponent("page", routeLayoutMapping, {
   "/": () => import("../../pages/Home"),
   "/about": () => import("../../pages/About"),
   "/404": () => import("../../pages/NotFound"),

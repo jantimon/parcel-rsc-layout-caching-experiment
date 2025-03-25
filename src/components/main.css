@@ -1,7 +1,7 @@
 /* Modern Elegant CSS for RSC Layout */
 
 /* Base styles and variables */
-:root {
+.main-layout {
   --primary-color: #3a86ff;
   --text-color: #333;
   --background-color: #fff;
@@ -15,188 +15,186 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
   --border-radius: 8px;
-}
 
-/* Reset and global styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  /* Reset and global styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-html {
   font-size: 16px;
   font-family: var(--font-main);
   color: var(--text-color);
   line-height: 1.6;
-}
-
-body {
-  background-color: var(--background-color);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* Header styling */
-header {
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-header h1 {
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-/* Main content area */
-main {
-  flex: 1;
-  background-color: var(--secondary-background);
-  border-radius: var(--border-radius);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 2rem;
-}
-
-/* Footer styling */
-footer {
-  padding: 1.5rem 0;
-  text-align: center;
-  font-size: 0.875rem;
-  color: #666;
-  background-color: var(--footer-color);
-  border-radius: var(--border-radius);
-  margin-bottom: 1.5rem;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.2;
-  margin-bottom: 0.75rem;
-}
-
-h2 {
-  font-size: 1.875rem;
-  color: var(--accent-color);
-  margin-top: 1.5rem;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 1.5rem 0;
-  }
-
-  header h1 {
-    font-size: 1.75rem;
-  }
-
-  main {
-    padding: 1rem;
-  }
 
   body {
-    padding: 0 1rem;
+    background-color: var(--background-color);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
-}
 
-/* Additional elements that might be in your Page component */
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
-}
+  /* Header styling */
+  header {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
+  header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
 
-button:hover {
-  background-color: var(--accent-color);
-}
+  /* Main content area */
+  main {
+    flex: 1;
+    background-color: var(--secondary-background);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+  }
 
-/* Tables if needed */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5rem;
-}
+  /* Footer styling */
+  footer {
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #666;
+    background-color: var(--footer-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+  }
 
-th,
-td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid var(--border-color);
-}
+  /* Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
 
-th {
-  background-color: var(--secondary-background);
-  font-weight: 600;
-}
+  h2 {
+    font-size: 1.875rem;
+    color: var(--accent-color);
+    margin-top: 1.5rem;
+  }
 
-/* Card-like elements */
-section {
-  background-color: var(--background-color);
-  border-radius: var(--border-radius);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-color);
-}
+  p {
+    margin-bottom: 1rem;
+  }
 
-/* Highlight for the cached date */
-header time,
-header span {
-  font-size: 0.875rem;
-  color: #666;
-  font-style: italic;
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    header {
+      padding: 1.5rem 0;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+    }
+
+    main {
+      padding: 1rem;
+    }
+
+    body {
+      padding: 0 1rem;
+    }
+  }
+
+  /* Additional elements that might be in your Page component */
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+  }
+
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  button:hover {
+    background-color: var(--accent-color);
+  }
+
+  /* Tables if needed */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  th {
+    background-color: var(--secondary-background);
+    font-weight: 600;
+  }
+
+  /* Card-like elements */
+  section {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+  }
+
+  /* Highlight for the cached date */
+  header time,
+  header span {
+    font-size: 0.875rem;
+    color: #666;
+    font-style: italic;
+  }
 }

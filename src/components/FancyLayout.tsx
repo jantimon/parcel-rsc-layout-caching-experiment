@@ -4,7 +4,7 @@ import "./fancy.css";
 
 export function FancyLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html className="fancy-layout">
       <head>
         <title>RSC Layout Caching Experiment</title>
         <meta charSet="utf-8" />

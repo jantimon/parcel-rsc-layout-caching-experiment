@@ -4,7 +4,7 @@ import "./main.css";
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html className="main-layout">
       <head>
         <title>RSC Layout Caching Experiment</title>
         <meta charSet="utf-8" />

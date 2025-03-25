@@ -27,24 +27,28 @@ export function createServerRoute(
   }>,
 ) {
   const pageWithLayout = <LayoutRenderer layout={layout} />;
-  return async (req: Request, res: Response) => {
-    // Get the App Shell (the layout) from the cache
-    const { html } = await getLayout(pageWithLayout, {
-      component: LayoutRenderer,
-    });
-    res.setHeader("Content-Type", "text/html");
-    // Stream the opening tags of the HTML document right away
-    res.write(html[0]);
-    await withRouterContext(req.path, async () => {
-      // The page is rendered dynamically on every request
-      const stream = await renderToReadableStream(<Page />);
-      for await (const chunk of stream) {
-        res.write(chunk);
-        break;
-      }
-      // write the closing tags of the HTML document
-      res.write(html[1]);
-      res.end();
-    });
+  return {
+    handler: async (req: Request, res: Response) => {
+      // Get the App Shell (the layout) from the cache
+      const { html } = await getLayout(pageWithLayout, {
+        component: LayoutRenderer,
+      });
+      res.setHeader("Content-Type", "text/html");
+      // Stream the opening tags of the HTML document right away
+      res.write(html[0]);
+      await withRouterContext(req.path, async () => {
+        // The page is rendered dynamically on every request
+        const stream = await renderToReadableStream(<Page />);
+        for await (const chunk of stream) {
+          res.write(chunk);
+          break;
+        }
+        // write the closing tags of the HTML document
+        res.write(html[1]);
+        res.end();
+      });
+    },
+    layout: async () =>
+      (await getLayout(pageWithLayout, { component: LayoutRenderer })).rsc,
   };
 }

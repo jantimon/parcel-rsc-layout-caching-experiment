@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Link } from "../router/link";
+import { Link } from "../router";
 
 export default function About() {
   return (
